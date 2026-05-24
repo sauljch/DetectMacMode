@@ -13,7 +13,7 @@ OBJS    = $(SRCS:.c=.o)
 all: $(LIB)
 
 $(LIB): $(OBJS)
-	$(CC) -dynamiclib -o $@ $^ $(LDFLAGS)
+	$(CC) -dynamiclib -install_name $(PREFIX)/lib/$(LIB) -o $@ $^ $(LDFLAGS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
